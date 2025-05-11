@@ -1,0 +1,258 @@
+/* General styling */
+body {
+    font-family: "Poppins", "Arial", sans-serif;
+    margin: 0;
+    background: linear-gradient(135deg, #e6f0fa, #d9e4f5);
+    color: #333;
+}
+
+h1 {
+    color: rgb(59, 57, 57) !important;
+}
+
+/* App container */
+.stApp {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 15px;
+    border-radius: 15px;
+    background-color: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Chat message styling */
+.chat-message {
+    display: flex;
+    align-items: flex-start;
+    margin: 8px 0;
+    animation: fadeIn 0.5s ease-in;
+}
+
+.user-message {
+    flex-direction: row-reverse;
+}
+
+.assistant-message {
+    flex-direction: row;
+}
+
+.avatar {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    margin: 0 8px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.avatar:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+.user-avatar {
+    background-color: #26a69a;
+    color: white;
+}
+
+.assistant-avatar {
+    background-color: #ff6f61;
+    color: white;
+}
+
+.message-wrapper {
+    flex: 1;
+}
+
+.message-content {
+    padding: 10px;
+    border-radius: 12px;
+    line-height: 1.4;
+    word-wrap: break-word;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    font-size: 0.9em;
+}
+
+.user-message .message-content {
+    background: linear-gradient(135deg, #26a69a, #4db6ac);
+    color: white;
+    border-bottom-right-radius: 4px;
+}
+
+.assistant-message .message-content {
+    background: linear-gradient(135deg, #f9f9f9, #eceff1);
+    color: #333;
+    border-bottom-left-radius: 4px;
+}
+
+/* Typing animation for assistant messages */
+.typing {
+    position: relative;
+    overflow: hidden;
+    animation: typing 2s steps(30, end), blink-caret 0.75s step-end infinite;
+}
+
+@keyframes typing {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}
+
+@keyframes blink-caret {
+    from,
+    to {
+        border-right-color: transparent;
+    }
+    50% {
+        border-right-color: black;
+    }
+}
+
+/* Structured output styling */
+.message-content h2 {
+    color: #ff6f61;
+    font-size: 1.3em;
+    margin-bottom: 8px;
+}
+
+.message-content h3 {
+    color: #26a69a;
+    font-size: 1.1em;
+    margin: 8px 0;
+}
+
+.message-content ul {
+    padding-left: 15px;
+    margin: 8px 0;
+}
+
+.message-content li {
+    margin-bottom: 5px;
+}
+
+.message-content p {
+    margin: 0;
+    font-size: 0.9em;
+    color: #555;
+}
+
+.source-link a {
+    color: #ff6f61;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.85em;
+}
+
+.source-link a:hover {
+    text-decoration: underline;
+}
+
+/* Timestamp and actions */
+.message-actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 8px;
+}
+
+.timestamp {
+    font-size: 0.65em;
+    color: #888;
+    margin-top: 3px;
+}
+
+/* Input form */
+.stTextInput > div > div > input {
+    border-radius: 20px;
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+    font-size: 0.9em;
+}
+
+.stButton > button {
+    background-color: #ff6f61;
+    color: white;
+    border-radius: 20px;
+    padding: 8px 20px;
+    border: none;
+    font-weight: bold;
+    font-size: 0.9em;
+    transition: background-color 0.3s ease;
+}
+
+.stButton > button:hover {
+    background-color: #e65b50;
+}
+
+/* Clear chat button */
+button[kind="secondary"] {
+    background-color: #f44336;
+    color: white;
+    border-radius: 20px;
+    padding: 6px 15px;
+    border: none;
+    font-size: 0.9em;
+}
+
+button[kind="secondary"]:hover {
+    background-color: #d32f2f;
+}
+
+/* Copy button */
+button[kind="primary"] {
+    background-color: #26a69a;
+    color: white;
+    border-radius: 15px;
+    padding: 4px 8px;
+    border: none;
+    font-size: 0.75em;
+}
+
+button[kind="primary"]:hover {
+    background-color: #1d8377;
+}
+
+/* Text area for copying */
+.stTextArea textarea {
+    font-size: 0.9em;
+    border-radius: 10px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive design */
+@media (max-width: 600px) {
+    .stApp {
+        padding: 8px;
+    }
+
+    .message-content {
+        max-width: 80%;
+    }
+
+    .avatar {
+        width: 25px;
+        height: 25px;
+        font-size: 14px;
+    }
+}

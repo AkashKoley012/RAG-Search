@@ -1,0 +1,61 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Virtual environments
+venv/
+.env/
+.venv/
+env/
+ENV/
+
+# Environment variables
+.env
+
+# Flask stuff
+instance/
+*.db
+
+# Pytest
+.cache
+.pytest_cache/
+
+# VSCode
+.vscode/
+
+# Mac OS
+.DS_Store
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Logs
+*.log
+
+# Coverage reports
+htmlcov/
+.coverage
+coverage.xml
+*.cover
+
+# MyPy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# pyright
+pyrightconfig.json
+
+# FAISS index files
+*.faiss
+
+# LangChain caches
+.cache/
+
+# Output JSON or temporary files
+*.json
+*.tmp
