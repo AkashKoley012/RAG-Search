@@ -69,17 +69,16 @@ workflow = StateGraph(state_schema=MessagesState)
 def call_model(state: MessagesState) -> dict:
     user_query = state["messages"][-1].content
     context = state.get("context", "")
-    print("Formating prompt..")
+    
     # Format prompt
     formatted_prompt = template.format(query=user_query, context=context)
-    print("Model invokeing...")
+    
     # Invoke model
     raw_response = model.invoke(formatted_prompt)
-    print("Parsing...")
+    
     # Parse structured output
     parsed = parser.parse(raw_response.content)
-    print("Parsed data")
-    # print(parsed.model_dump_json(indent=2))
+    
     # Return parsed object as JSON string
     return {
         "messages": state["messages"] + [SystemMessage(content=parsed.model_dump_json(indent=2))]
